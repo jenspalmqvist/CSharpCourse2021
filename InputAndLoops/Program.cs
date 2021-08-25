@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace InputAndLoops
 {
@@ -8,12 +9,13 @@ namespace InputAndLoops
     {
         static void Main(string[] args)
         {
-            string answer = "";
             var products = new List<string>();
             while (true)
             {
+                // "Please go to the store and buy a carton of milk and if they have eggs, get six."
+
                 Console.WriteLine("Ange en produkt med formatet (bokstäver)-(siffror), skriv 'exit' för att avsluta.");
-                answer = Console.ReadLine().Trim();
+                string answer = Console.ReadLine().Trim();
                 if (answer.ToLower() == "exit")
                 {
                     break;
@@ -24,19 +26,19 @@ namespace InputAndLoops
                     Console.WriteLine("Inget bindestreck!");
                     continue;
                 }
-                var splitAnswer = answer.Split('-');
-                var areLetters = splitAnswer[0].All(char.IsLetter);
-                var areNumbers = int.TryParse(splitAnswer[1], out int result);
+                //var splitAnswer = answer.Split('-');
+                //var areLetters = splitAnswer[0].All(char.IsLetter);
+                //var areNumbers = int.TryParse(splitAnswer[1], out int result);
 
-                //var splitIndex = answer.IndexOf('-');
-                //var preSplit = answer.Substring(0, splitIndex);
-                //var postSplit = answer.Substring(splitIndex + 1);
+                var splitIndex = answer.IndexOf('-');
+                var preSplit = answer.Substring(0, splitIndex);
+                var postSplit = answer.Substring(splitIndex + 1);
 
-                //var letterRegex = new Regex(@"^[A-Za-zåäöÅÄÖ]+$");
-                //var numbersRegex = new Regex(@"^[2-4]\d{2}$");
+                var letterRegex = new Regex(@"^[A-Za-zåäöÅÄÖ]+$");
+                var numbersRegex = new Regex(@"^[2-4]\d{2}$");
 
-                //var areLetters = letterRegex.IsMatch(preSplit);
-                //var areNumbers = numbersRegex.IsMatch(postSplit);
+                var areLetters = letterRegex.IsMatch(preSplit);
+                var areNumbers = numbersRegex.IsMatch(postSplit);
 
                 if (areNumbers)
                 {
