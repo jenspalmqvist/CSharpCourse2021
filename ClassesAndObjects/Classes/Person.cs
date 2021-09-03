@@ -18,20 +18,15 @@ namespace ClassesAndObjects
         {
         }
 
-        // Det kan finnas flera constructors, här är en som skapar ett tomt Person-objekt
-        public Person(Gender gender)
-        {
-            Gender = gender;
-        }
-
         // Här är en som skapar ett objekt med parametrarna vi skickar in
-        public Person(string name, int age, string adress)
+        public Person(string name, int age, string adress, Gender gender)
         {
             // Observera att variablerna vi skickar in har liten bokstav,
             // dessa använder vi för att sätta värden på klassens properties
             Name = name;
             Age = age;
             Adress = adress;
+            Gender = gender;
         }
 
         public int GetYearsToRetirement()

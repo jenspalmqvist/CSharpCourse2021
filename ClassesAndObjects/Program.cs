@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace ClassesAndObjects
+
 {
     class Program
     {
@@ -8,20 +13,23 @@ namespace ClassesAndObjects
         {
             Person kalle = new Person();
             kalle.Name = "Kalle";
-            kalle.Age = 28;
+            kalle.Age = 35;
             kalle.Adress = "Gatan 5, 12345 Staden";
+            kalle.Gender = Gender.Male;
+            Person pelle = new Person("Pelle", 25, "Nån annanstans", Gender.Other);
+            Person kim = new Person("Kim", 31, "En stad nära dig", Gender.NonBinary);
 
-            Person pelle = new Person("Pelle", 25, "Nån annan stans");
+            // Skriv till fil:
+            var persons = new List<Person> { kalle, pelle, kim };
+            string jsonString = JsonSerializer.Serialize(persons);
+            File.WriteAllText("persons.json", jsonString);
+            Console.WriteLine(jsonString);
+            Console.ReadLine();
 
-            Person kim = new Person(Gender.NonBinary);
+            // Läs från fil:                         Vad är det vi försöker läsa in?
+            var personsList = JsonSerializer.Deserialize<List<Person>>(File.ReadAllText("./persons.json"));
 
-            Console.WriteLine(kalle.Name + kalle.Age + kalle.Adress);
-            Console.WriteLine(pelle.Name + pelle.Age + pelle.Adress);
-            kalle.CelebrateBirthDay();
-            Console.WriteLine(kalle.GetYearsToRetirement());
-            kalle.CelebrateBirthDay();
-
-            Console.WriteLine(kalle.GetYearsToRetirement());
+            List<Person> personsOver30 = personsList.FindAll(person => person.Age > 30);
 
             Console.WriteLine("Hello World!");
         }
