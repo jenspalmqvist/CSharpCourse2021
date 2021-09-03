@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Excercises_25_8
 {
@@ -6,14 +8,14 @@ namespace Excercises_25_8
     {
         static void Main(string[] args)
         {
-            AllowedToVote();
-            AllowedToVoteOrBuyAlcohol();
+            //AllowedToVote();
+            //AllowedToVoteOrBuyAlcohol();
             Translate();
-            MultiplyFourNumbers();
-            OddOrEven();
-            SwapVariables();
-            NameRetirementAndChar();
-            ConvertTemperature();
+            //MultiplyFourNumbers();
+            //OddOrEven();
+            //SwapVariables();
+            //NameRetirementAndChar();
+            //ConvertTemperature();
         }
 
         private static void ConvertTemperature()
@@ -23,6 +25,7 @@ namespace Excercises_25_8
             int fahrenheit = temperature * 9 / 5 + 32;
             int celcius = (temperature - 32) * 5 / 9;
             Console.WriteLine($"Siffrans motsvarighet i Fahrenheit är {fahrenheit} ");
+            Console.WriteLine($"Siffrans motsvarighet i Celcius är {celcius} ");
         }
 
         private static void NameRetirementAndChar()
@@ -49,7 +52,7 @@ namespace Excercises_25_8
             }
             else
             {
-                Console.WriteLine($"Du gillar inte bokstäver!");
+                Console.WriteLine($"Du gillar siffror!");
             }
         }
 
@@ -59,9 +62,9 @@ namespace Excercises_25_8
             int tal1 = int.Parse(Console.ReadLine());
             Console.Write("Skriv in det andra talet: ");
             int tal2 = int.Parse(Console.ReadLine());
-            int tempVariabel = tal1;
+            int newTal2 = tal1;
             tal1 = tal2;
-            tal2 = tempVariabel;
+            tal2 = newTal2;
 
             Console.WriteLine($"Det första talet är nu {tal1} och det andra är {tal2}");
         }
@@ -83,8 +86,8 @@ namespace Excercises_25_8
         static void AllowedToVote()
         {
             Console.Write("Hur gammal är du? ");
-            bool validAge = int.TryParse(Console.ReadLine(), out int age);
-            if (validAge)
+
+            if (int.TryParse(Console.ReadLine(), out int age))
             {
                 if (age >= 18)
                 {
