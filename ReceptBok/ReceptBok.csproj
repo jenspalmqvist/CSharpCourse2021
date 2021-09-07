@@ -4,9 +4,4 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="ConsoleCompanion" Version="1.0.0" />
-  </ItemGroup>
-
 </Project>

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using ConsoleCompanion;
 
 namespace HotelOrganization
 {
@@ -19,6 +19,7 @@ namespace HotelOrganization
 
             List<Room> availableSingleRooms = hotel.Rooms
                 .FindAll(room => room.Type == RoomType.Single && room.IsAvailable);
+
             // Gör en foreach-loop över hotel.Rooms, returnerar alla rum där logiken blir true;
             foreach (Room room in availableSingleRooms)
             {
