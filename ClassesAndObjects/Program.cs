@@ -20,14 +20,13 @@ namespace ClassesAndObjects
             Person kim = new Person("Kim", 31, "En stad nära dig", Gender.NonBinary);
 
             // Skriv till fil:
-            var persons = new List<Person> { kalle, pelle, kim };
-            string jsonString = JsonSerializer.Serialize(persons);
-            File.WriteAllText("persons.json", jsonString);
-            Console.WriteLine(jsonString);
-            Console.ReadLine();
+            //var persons = new List<Person> { kalle, pelle, kim };
+            //string jsonString = JsonSerializer.Serialize(persons);
+            //File.WriteAllText("persons.json", jsonString);
+            //Console.ReadLine();
 
             // Läs från fil:                         Vad är det vi försöker läsa in?
-            var personsList = JsonSerializer.Deserialize<List<Person>>(File.ReadAllText("./persons.json"));
+            var personsList = JsonSerializer.Deserialize<List<Person>>(File.ReadAllText("persons.json"));
 
             List<Person> personsOver30 = personsList.FindAll(person => person.Age > 30);
 

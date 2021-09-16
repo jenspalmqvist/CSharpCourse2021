@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BicycleRenting
 {
@@ -21,8 +22,15 @@ namespace BicycleRenting
             new Bicycle(BicycleType.MountainBike, Brand.Scott, 450),
             new Bicycle(BicycleType.MountainBike, Brand.DBS, 350),
             };
+
+            if (bicycles == null)
+            {
+                throw new Exception();
+            }
             BicycleRental rental = new BicycleRental("Rental one", bicycles);
             BicycleRental rental2 = new BicycleRental("Rental two", new List<Bicycle>());
+
+            var scottBikes = rental.Bicycles.Where(bicycle => bicycle.Brand == Brand.Scott);
 
             Console.WriteLine(rental.Bicycles[3]);
             rental.RentBicycle(rental.Bicycles[3], 5);
