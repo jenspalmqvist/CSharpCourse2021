@@ -4,14 +4,28 @@ using System.Text;
 
 namespace ClassesAndObjects
 {
-    class Person
+    interface ITest
+    {
+    }
+
+    public abstract class PersonAbstract
+    {
+        public abstract string Name { get; set; }
+
+        public abstract int Age { get; set; }
+        public abstract string Adress { get; set; }
+        public abstract Gender Gender { get; set; }
+    }
+
+    class Person : PersonAbstract, ITest
     {
         // Properties ska alltid börja på stor bokstav
-        public string Name { get; set; }
+        public override string Name { get; set; }
 
-        public int Age { get; set; }
-        public string Adress { get; set; }
-        public Gender Gender { get; set; }
+        public override int Age { get; set; }
+        public override string Adress { get; set; }
+        public override Gender Gender { get; set; }
+        public int Temp { get; set; }
 
         // Det kan finnas flera constructors, här är en som skapar ett tomt Person-objekt
         public Person()
@@ -27,6 +41,7 @@ namespace ClassesAndObjects
             Age = age;
             Adress = adress;
             Gender = gender;
+            Temp = 15;
         }
 
         public int GetYearsToRetirement()
