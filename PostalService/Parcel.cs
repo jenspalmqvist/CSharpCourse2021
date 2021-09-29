@@ -1,43 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PostalService
 {
-    public abstract class Parcel
+    abstract class Parcel
     {
-        public Address RecipientAddress { get; set; }
         public Address SenderAddress { get; set; }
-
+        public Address RecipientAddress { get; set; }
         public double Weight { get; set; }
         public double Size { get; set; }
         public int ShippingCost { get; set; }
 
-        public Parcel(Address recipientAddress, Address senderAddress, double weight, double size)
+        // Konstruktor för saker som kräver en storlek
+        public Parcel(Address senderAddress, Address recipientAddress, double weight, double size)
         {
-            RecipientAddress = recipientAddress;
             SenderAddress = senderAddress;
+            RecipientAddress = recipientAddress;
             Weight = weight;
             Size = size;
+        }
+
+        // Konstruktor för saker som inte behöver en storlek
+        public Parcel(Address senderAddress, Address recipientAddress, double weight)
+        {
+            SenderAddress = senderAddress;
+            RecipientAddress = recipientAddress;
+            Weight = weight;
         }
 
         public abstract int CalculatePrice(double weight, double size);
     }
 }
-
-/*
- *
- * Parcel -> Package && Letter
- * Parcel -> TraceableParcel -> TraceablePackage && TraceableLetter
- * Parcel -> InsuredParcel -> InsuredPackage osv.
- * Parcel -> TraceableInsuredParcel -> TraceableInsuredPackage
- *
- * Parcel -> Package && Letter
- * TraceablePackage : Package, ITraceable
- * TraceableInsuredPackage : Package, ITraceable, IInsured
- *
- *
- *
- *
- *
- */

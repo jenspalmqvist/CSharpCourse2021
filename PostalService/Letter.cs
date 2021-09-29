@@ -1,21 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PostalService
 {
-    public class Letter : Parcel
+    class Letter : Parcel
     {
-        public Letter(Address recipientAddress, Address senderAddress, double weight, double size)
-            : base(recipientAddress, senderAddress, weight, size)
+        public Letter(Address senderAddress, Address recipientAddress, double weight)
+            : base(senderAddress, recipientAddress, weight)
         {
-            ShippingCost = CalculatePrice(weight, size);
+            ShippingCost = CalculatePrice(weight);
         }
 
-        public override int CalculatePrice(double weight, double size)
+        public override int CalculatePrice(double weight, double size = 0)
         {
             return 50;
+        }
+
+        public static Letter CreateLetter()
+        {
+            Address senderAddress = InputHelper.GetAddress(isSender: true); // Flyttat inmatningen av data till en hjälpklass
+            Address recipientAddress = InputHelper.GetAddress(isSender: false);
+            double parcelWeight = InputHelper.GetDouble("Brevets vikt:");
+            return new Letter(recipientAddress, senderAddress, parcelWeight);
         }
     }
 }

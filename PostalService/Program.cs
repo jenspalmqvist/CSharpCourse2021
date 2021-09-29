@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 
 namespace PostalService
 {
@@ -8,54 +9,51 @@ namespace PostalService
         static void Main(string[] args)
         {
             Console.WriteLine("Välkommen till Percys postkontor!");
-            List<Letter> letters = new List<Letter>();
+            List<Parcel> parcels = new List<Parcel>(); // Ändrat till lista med Parcels för att kunna lägga till både brev och paket
+
             while (true)
             {
-                Console.Write("Avsändares namn:");
-                string senderName = Console.ReadLine();
-                Console.Write("Avsändares gatuadress:");
-                string senderStreetAddress = Console.ReadLine();
-                Console.Write("Avsändares postnummer:");
-                int.TryParse(Console.ReadLine(), out int senderZipCode);
-                Console.Write("Avsändares stad:");
-                string senderCity = Console.ReadLine();
-                Address senderAddress = new Address(senderName, senderStreetAddress, senderZipCode, senderCity);
+                Parcel parcel;
+                Console.WriteLine();
+                Console.WriteLine("Vad vill du skicka?");
+                Console.WriteLine("1. Paket");
+                Console.WriteLine("2. Brev");
+                int parcelType = InputHelper.GetInt("Välj ett av alternativen ovan: ");
+                switch (parcelType)
+                {
+                    case 1:
+                        parcel = Package.CreatePackage(); // Flyttat inmatningen in i klasserna
+                        break;
 
-                Console.Write("Mottagares namn:");
-                string recipientName = Console.ReadLine();
-                Console.Write("Mottagares gatuadress:");
-                string recipientStreetAddress = Console.ReadLine();
-                Console.Write("Mottagares postnummer:");
-                int.TryParse(Console.ReadLine(), out int recipientZipCode);
-                Console.Write("Mottagares stad:");
-                string recipientCity = Console.ReadLine();
-                Address recipientAddress = new Address(recipientName, recipientStreetAddress, recipientZipCode, recipientCity);
+                    case 2:
+                        parcel = Letter.CreateLetter(); // Flyttat inmatningen in i klasserna
+                        break;
 
-                Console.Write("Paketets vikt:");
-                double.TryParse(Console.ReadLine(), out double packageWeight);
-                Console.Write("Paketets storlek:");
-                double.TryParse(Console.ReadLine(), out double packageSize);
-
-                Letter letter = new Letter(recipientAddress, senderAddress, packageWeight, packageSize);
-                letters.Add(letter);
+                    default:
+                        continue;
+                }
+                parcels.Add(parcel);
+                Console.ReadLine();
             }
         }
     }
 }
 
 /*
- Brev och pakethantering:
+ * Postombud/Postservice:
 
-- Address
-- Portotabell
-- Information om paket/brev:
-  - Avsändare / Mottagare
-  - Produktnamn
-  - Ombud/hemleverans
-  - Kolli-ID
-  - Storlek
+- Pakethantering/-förvaring
+
+- Paket/Brev
+  - Avsändare
+  - Mottagare
   - Vikt
-  - Skickat eller inte
-- Metod för att skicka försändelsen
-- Postcentral/postkontor
+  - Storlek
+
+- Spårbara försändelser
+  - Kolli-ID
+
+- Försäkrade försändelser
+  - Värde
+
  */
