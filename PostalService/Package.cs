@@ -24,14 +24,6 @@ namespace PostalService
                 return 50;
         }
 
-        public static Package CreatePackage()
-        {
-            Address senderAddress = InputHelper.GetAddress(isSender: true); // Flyttat inmatningen av data till en hjälpklass
-            Address recipientAddress = InputHelper.GetAddress(isSender: false);
-            double parcelWeight = InputHelper.GetDouble("Paketets vikt:");
-            double parcelSize = InputHelper.GetDouble("Paketets storlek:");
-
-            return new Package(recipientAddress, senderAddress, parcelWeight, parcelSize);
-        }
+        
     }
 }

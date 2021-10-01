@@ -12,6 +12,18 @@ namespace PostalService
         {
             string addressee = isSender ? "Avsändarens" : "Mottagarens"; // om isSender är true sätts addressee till "Avsändarens", annars till "Mottagarens"
 
+            /*
+             * Ternaryn motsvarar
+             * if(isSender)
+             * {
+             * addressee = "Avsändarens";
+             * }
+             * else
+             * {
+             * addressee = "Mottagarens";
+             * }
+             */
+
             Console.Write($"{addressee} namn:");
             string name = Console.ReadLine();
             Console.Write($"{addressee} gatuadress:");
@@ -50,6 +62,24 @@ namespace PostalService
                 Console.Write(question);
                 validInput = int.TryParse(Console.ReadLine(), out result);
                 if (!validInput)
+                {
+                    ClearCurrentLine(left, top); // Om inmatningen inte är korrekt, töm raden vi var på när vi kom in i metoden
+                }
+            } while (!validInput);
+            return result;
+        }
+
+        static public int GetInt(string question, int min, int max)
+        {
+            (int left, int top) = Console.GetCursorPosition();  // Koordinater för skrivhuvudet när vi kommer in i metoden
+
+            int result;
+            bool validInput;
+            do
+            {
+                Console.Write(question);
+                validInput = int.TryParse(Console.ReadLine(), out result);
+                if (!validInput || (result < min || result > max))
                 {
                     ClearCurrentLine(left, top); // Om inmatningen inte är korrekt, töm raden vi var på när vi kom in i metoden
                 }

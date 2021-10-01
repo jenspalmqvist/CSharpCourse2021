@@ -19,12 +19,6 @@ namespace PostalService
             return 50;
         }
 
-        public static Letter CreateLetter()
-        {
-            Address senderAddress = InputHelper.GetAddress(isSender: true); // Flyttat inmatningen av data till en hjälpklass
-            Address recipientAddress = InputHelper.GetAddress(isSender: false);
-            double parcelWeight = InputHelper.GetDouble("Brevets vikt:");
-            return new Letter(recipientAddress, senderAddress, parcelWeight);
-        }
+
     }
 }

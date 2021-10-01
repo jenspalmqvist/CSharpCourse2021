@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using static PostalService.InputHelper;
 
 namespace PostalService
 {
@@ -8,33 +9,27 @@ namespace PostalService
     {
         static void Main(string[] args)
         {
+            var organization = CreateOrganization();
             Console.WriteLine("Välkommen till Percys postkontor!");
-            List<Parcel> parcels = new List<Parcel>(); // Ändrat till lista med Parcels för att kunna lägga till både brev och paket
-
             while (true)
             {
-                Parcel parcel;
-                Console.WriteLine();
-                Console.WriteLine("Vad vill du skicka?");
-                Console.WriteLine("1. Paket");
-                Console.WriteLine("2. Brev");
-                int parcelType = InputHelper.GetInt("Välj ett av alternativen ovan: ");
-                switch (parcelType)
-                {
-                    case 1:
-                        parcel = Package.CreatePackage(); // Flyttat inmatningen in i klasserna
-                        break;
+                PostOffice currentOffice = organization.SelectPostOffice();
 
-                    case 2:
-                        parcel = Letter.CreateLetter(); // Flyttat inmatningen in i klasserna
-                        break;
+                currentOffice.CreateLetter();
+                currentOffice.CreateLetter();
 
-                    default:
-                        continue;
-                }
-                parcels.Add(parcel);
+                organization.SendParcels();
+
                 Console.ReadLine();
             }
+        }
+
+        static PostalOrganization CreateOrganization()
+        {
+            PostalOrganization organization = new PostalOrganization();
+            organization.PostOffices.Add(new PostOffice("Stockholm", 10000, 20000));
+            organization.PostOffices.Add(new PostOffice("Resten", 20000, 99999));
+            return organization;
         }
     }
 }
