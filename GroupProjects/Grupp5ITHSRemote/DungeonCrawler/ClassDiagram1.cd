@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DungeonCrawler.GameEngine">
+    <Position X="1" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAIgAAAAAACAAAgAAAAhACAIAAAAAAgAAACAQCAAAA=</HashCode>
+      <FileName>GameEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DungeonCrawler.PlayerCharacter">
+    <Position X="10.5" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAIAAAAAAAAEAAAAgACQAAAAAAAAgAgAAAAA=</HashCode>
+      <FileName>PlayerCharacter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DungeonCrawler.Character">
+    <Position X="8.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAGACAAIAACAAiAAAAAMQgAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Character.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DungeonCrawler.NonPlayerCharacter">
+    <Position X="10.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgIKAAAAAAIIgAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NonPlayerCharacter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DungeonCrawler.DungeonMap">
+    <Position X="3.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAARAQAAAAABCAAAAQAAAEAgCAAwAhEBA=</HashCode>
+      <FileName>DungeonMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DungeonCrawler.Equipment">
+    <Position X="5.75" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAACgAAAAAAQAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Equipment.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DungeonCrawler.CoinItem">
+    <Position X="8.25" Y="5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAgAAgAAAA=</HashCode>
+      <FileName>CoinItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DungeonCrawler.MapTile">
+    <Position X="5.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAgAAAgAABA=</HashCode>
+      <FileName>MapTile.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.1" />
+  </Class>
+  <Interface Name="DungeonCrawler.IRepresentable">
+    <Position X="3.25" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>IRepresentable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
