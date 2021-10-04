@@ -25,23 +25,33 @@ namespace PostalService
 
         public void CreateLetter()
         {
-            Address senderAddress = GetAddress(isSender: true); // Flyttat inmatningen av data till en hjälpklass
-            Address recipientAddress = GetAddress(isSender: false);
+            Address senderAddress = GetAddress(AddressType.Sender); // Flyttat inmatningen av data till en hjälpklass
+            Address recipientAddress = GetAddress(AddressType.Recipient);
             double parcelWeight = GetDouble("Brevets vikt:");
             OutgoingParcels.Add(new Letter(senderAddress, recipientAddress, parcelWeight));
         }
 
+        public void CreateTraceableLetter()
+        {
+            Random random = new Random();
+            Address senderAddress = GetAddress(AddressType.Sender); // Flyttat inmatningen av data till en hjälpklass
+            Address recipientAddress = GetAddress(AddressType.Recipient);
+            double parcelWeight = GetDouble("Brevets vikt:");
+            int trackingNumber = random.Next(1000, 10000);
+            // 'this' hänvisar till objektet vi använder för att kalla på metoden CreateTraceableLetter,
+            // dvs kontoret vi har valt att jobba med i menyn
+            OutgoingParcels.Add(new TraceableLetter(senderAddress, recipientAddress, parcelWeight, this, 1234));
+        }
+
         public void CreatePackage()
         {
-            Address senderAddress = GetAddress(isSender: true); // Flyttat inmatningen av data till en hjälpklass
-            Address recipientAddress = GetAddress(isSender: false);
+            Address senderAddress = GetAddress(AddressType.Sender); // Flyttat inmatningen av data till en hjälpklass
+            Address recipientAddress = GetAddress(AddressType.Recipient);
             double parcelWeight = GetDouble("Paketets vikt:");
             double parcelSize = GetDouble("Paketets storlek:");
 
             OutgoingParcels.Add(new Package(senderAddress, recipientAddress, parcelWeight, parcelSize));
         }
-
- 
     }
 }
 

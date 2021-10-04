@@ -15,10 +15,15 @@ namespace PostalService
             {
                 PostOffice currentOffice = organization.SelectPostOffice();
 
-                currentOffice.CreateLetter();
-                currentOffice.CreateLetter();
+                //currentOffice.CreateLetter();
+                //currentOffice.CreateLetter();
 
+                //currentOffice.CreateTraceableLetter();
+                string location = organization.TrackParcel(1235);
+                Console.WriteLine(location);
                 organization.SendParcels();
+                location = organization.TrackParcel(1234);
+                Console.WriteLine(location);
 
                 Console.ReadLine();
             }
