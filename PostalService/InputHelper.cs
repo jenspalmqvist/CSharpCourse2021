@@ -8,13 +8,14 @@ namespace PostalService
 {
     static class InputHelper
     {
-        static public Address GetAddress(bool isSender)
+        static public Address GetAddress(AddressType addressType)
         {
-            string addressee = isSender ? "Avsändarens" : "Mottagarens"; // om isSender är true sätts addressee till "Avsändarens", annars till "Mottagarens"
+            // om addressType är AddressType.Sender sätts addressee till "Avsändarens", annars till "Mottagarens"
+            string addressee = addressType == AddressType.Sender ? "Avsändarens" : "Mottagarens";
 
             /*
-             * Ternaryn motsvarar
-             * if(isSender)
+             * Ternaryn ( dvs 'addressType == AddressType.Sender ? "Avsändarens" : "Mottagarens"' ) motsvarar:
+             * if(addressType == AddressType.Sender)
              * {
              * addressee = "Avsändarens";
              * }

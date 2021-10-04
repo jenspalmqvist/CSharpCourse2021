@@ -31,6 +31,7 @@ namespace PostalService
             Weight = weight;
         }
 
+        // Metod som måste implementeras av klasserna som ärver Parcel
         public abstract int CalculatePrice(double weight, double size);
     }
 }
