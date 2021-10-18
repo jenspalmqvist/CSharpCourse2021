@@ -1,0 +1,96 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace GenericsAndLinq
+{
+    public class Opossum : Mammal, IMarsupial
+    {
+        public Opossum(Sex sex, string name, double weight, Diet diet, bool isHungry, List<IMarsupial> babiesInPouch) : base(sex, name, weight, diet, isHungry)
+        {
+            if (sex == Sex.Male)
+            {
+                throw new ArgumentException("Male Opossums do not have pouches.");
+            }
+            if (!babiesInPouch.TrueForAll(baby => baby is Opossum))
+            {
+                throw new ArgumentException("Wrong kind of marsupial!");
+            }
+            BabiesInPouch = babiesInPouch;
+        }
+
+        public Opossum(Sex sex, string name, double weight, Diet diet, bool isHungry) : base(sex, name, weight, diet, isHungry)
+        {
+        }
+
+        public List<IMarsupial> BabiesInPouch { get; set; }
+
+        public override string Feed(Diet food)
+        {
+            if (food == Diet.Milk && BabiesInPouch.Count > 0)
+            {
+                return "Thank you for feeding my baby!";
+            }
+            else if (food != Diet)
+            {
+                return "I don't like this food!";
+            }
+            else if (!IsHungry)
+            {
+                return "I don't want to eat right now.";
+            }
+            else
+            {
+                return "Yum! Thank you!";
+            }
+        }
+
+        public List<string> FeedBabies(Diet food)
+        {
+            List<string> response = new List<string>();
+            foreach (var baby in BabiesInPouch)
+            {
+                if (food != Diet.Milk)
+                {
+                    response.Add("My baby can't eat this.");
+                }
+                else if ((baby as Mammal).IsHungry)
+                {
+                    response.Add("Thank you for feeding my baby!");
+                }
+                else
+                {
+                    response.Add("My baby is not hungry right now.");
+                }
+            }
+            return response;
+        }
+
+        public IMarsupial TransformBabyToAdult()
+        {
+            if (BabiesInPouch is null || BabiesInPouch.Count < 1)
+            {
+                throw new ArgumentException("No babies to transform!");
+            }
+            IMarsupial grownUpBaby = BabiesInPouch[0];
+            BabiesInPouch.RemoveAt(0);
+            (grownUpBaby as Opossum).Diet = Diet.Herbivore;
+            return grownUpBaby;
+        }
+
+        public List<IMarsupial> TransformBabyToAdult(bool allBabies)
+        {
+            List<IMarsupial> grownUpBabies = new List<IMarsupial>();
+            if (BabiesInPouch is null || BabiesInPouch.Count < 1)
+            {
+                throw new ArgumentException("No babies to transform!");
+            }
+            for (int i = 0; i < BabiesInPouch.Count; i++)
+            {
+                (BabiesInPouch[i] as Opossum).Diet = Diet.Herbivore;
+                grownUpBabies.Add(BabiesInPouch[i]);
+            }
+            BabiesInPouch.Clear();
+            return grownUpBabies;
+        }
+    }
+}
