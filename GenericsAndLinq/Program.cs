@@ -49,45 +49,6 @@ namespace GenericsAndLinq
         static void Main(string[] args)
         {
             var allTheMammals = SetupList();
-
-            List<Mammal> notHungryAnimals = allTheMammals.Where(animal => !animal.IsHungry).ToList();
-
-            var sortedByName = allTheMammals.OrderBy(m => (m as IAquatic)?.MaxTimeUnderwater);
-            var sortedByNameThenByWeight = allTheMammals.OrderBy(m => m.Diet).ThenBy(m => m.Weight);
-
-            var groupedBySex = allTheMammals.GroupBy(m => m.Sex);
-
-            var maleMammals = groupedBySex.Where(m => m.Key == Sex.Male);
-            Dictionary<string, List<Mammal>> mammalsDictionary = new Dictionary<string, List<Mammal>>();
-
-            mammalsDictionary.Add("Dolphins", new List<Mammal>() { new Dolphin(sex: Sex.Male, name: "Dolph", weight: 23, diet: Diet.Carnivore, isHungry: true, maxTimeUnderWater: 8, jumpingHeight: 4) });
-            mammalsDictionary.Add("Echidnas", new List<Mammal>() { new Echidna(sex: Sex.Female, name: "Edna", weight: 23, diet: Diet.Carnivore, isHungry: true, numberOfEggs: 8, numberOfSpikes: 123) });
-
-            string input = "Dolphins";
-
-            mammalsDictionary.TryGetValue(input, out var list);
-            bool isListOfCarnivores = allTheMammals.All(a => a.Diet == Diet.Carnivore);
-            bool listContainsCarnivores = allTheMammals.Any(a => a.Diet == Diet.Carnivore);
-
-            var highestWeight = allTheMammals.Max(m => m.Weight);
-            var heaviestMammal = allTheMammals.Find(m => m.Weight == highestWeight);
-            var totalWeight = allTheMammals.Sum(m => m.Weight);
-
-            List<string> list1 = new List<string>() { "Ett", "Två", "Tre", "Fyra", "Fem", "Tre", "Fyra", "Fem" };
-            List<string> list2 = new List<string>() { "Fyra", "Fem", "Sex", "Sju", "Åtta" };
-
-            var list3 = list1.Distinct(); // Tar bort dubletter i den aktuella listan
-            var list4 = list1.Intersect(list2); // Tar ut saker om finns i båda listorna
-            var list5 = list1.Except(list2); // Tar ut saker som INTE finns i båda listorna
-            var list6 = list1.Union(list2); // Kombinerar listorna och tar bort dubletter
-
-            //var sortedByNameThenByWeight2 = allTheMammals.OrderBy(m => m.Name).OrderBy(m => m.Weight);
-
-            Console.WriteLine("");
-        }
-
-        static void Feed(List<Mammal> mammals)
-        {
         }
     }
 }
