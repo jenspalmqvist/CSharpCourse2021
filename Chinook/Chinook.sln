@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Chinook", "Chinook\Chinook.sqlproj", "{0584149D-701B-4D2F-863F-471E1B1FD355}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0584149D-701B-4D2F-863F-471E1B1FD355}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0584149D-701B-4D2F-863F-471E1B1FD355}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0584149D-701B-4D2F-863F-471E1B1FD355}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0584149D-701B-4D2F-863F-471E1B1FD355}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0584149D-701B-4D2F-863F-471E1B1FD355}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0584149D-701B-4D2F-863F-471E1B1FD355}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {549DD056-DB6C-4ABD-B20A-73AF4DAE6DBE}
+	EndGlobalSection
+EndGlobal

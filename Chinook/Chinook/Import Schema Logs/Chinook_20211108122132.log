@@ -1,0 +1,84 @@
+2021-11-08 13:21:32	This log contains information about the import schema operation into project 'Chinook' on computer 'LAPTOP-I22UQ574' by user 'jensp'.
+2021-11-08 13:21:33	Import of database schema has started.
+2021-11-08 13:21:36	Gathering database credentials
+2021-11-08 13:21:36	Gathering database options
+2021-11-08 13:21:36	Gathering users
+2021-11-08 13:21:36	Gathering roles
+2021-11-08 13:21:36	Gathering application roles
+2021-11-08 13:21:36	Gathering role memberships
+2021-11-08 13:21:36	Gathering filegroups
+2021-11-08 13:21:36	Gathering full-text catalogs
+2021-11-08 13:21:36	Gathering assemblies
+2021-11-08 13:21:36	Gathering certificates
+2021-11-08 13:21:36	Gathering asymmetric keys
+2021-11-08 13:21:36	Gathering symmetric keys
+2021-11-08 13:21:36	Gathering encrypted symmetric keys
+2021-11-08 13:21:36	Gathering schemas
+2021-11-08 13:21:36	Gathering XML schema collections
+2021-11-08 13:21:36	Gathering user-defined data types
+2021-11-08 13:21:36	Gathering user-defined types
+2021-11-08 13:21:36	Gathering table types
+2021-11-08 13:21:36	Gathering unique keys for table types
+2021-11-08 13:21:36	Gathering primary keys for table types
+2021-11-08 13:21:36	Gathering indexes for table types
+2021-11-08 13:21:36	Gathering check constraints for table types
+2021-11-08 13:21:36	Gathering default constraints for table types
+2021-11-08 13:21:36	Gathering partition functions
+2021-11-08 13:21:36	Gathering partition schemes
+2021-11-08 13:21:36	Gathering functions
+2021-11-08 13:21:36	Gathering encrypted functions
+2021-11-08 13:21:36	Gathering aggregates
+2021-11-08 13:21:36	Gathering procedures
+2021-11-08 13:21:36	Gathering encrypted procedures
+2021-11-08 13:21:36	Gathering tables
+2021-11-08 13:21:36	Gathering primary keys
+2021-11-08 13:21:36	Gathering unique constraints
+2021-11-08 13:21:36	Gathering foreign keys
+2021-11-08 13:21:36	Gathering default constraints
+2021-11-08 13:21:36	Gathering check constraints
+2021-11-08 13:21:36	Gathering views
+2021-11-08 13:21:36	Gathering encrypted views
+2021-11-08 13:21:36	Gathering indexes
+2021-11-08 13:21:36	Gathering statistics
+2021-11-08 13:21:36	Gathering full-text index stoplists
+2021-11-08 13:21:36	Gathering search property lists
+2021-11-08 13:21:36	Gathering search properties
+2021-11-08 13:21:36	Gathering full-text indexes
+2021-11-08 13:21:36	Gathering column store indexes
+2021-11-08 13:21:36	Gathering spatial indexes
+2021-11-08 13:21:36	Gathering XML indexes
+2021-11-08 13:21:36	Gathering Selective XML indexes
+2021-11-08 13:21:36	Gathering encrypted triggers
+2021-11-08 13:21:36	Gathering triggers
+2021-11-08 13:21:36	Gathering encrypted and clr ddl triggers
+2021-11-08 13:21:36	Gathering ddl triggers
+2021-11-08 13:21:36	Gathering synonyms
+2021-11-08 13:21:36	Gathering defaults
+2021-11-08 13:21:36	Gathering data constraint uddt bindings
+2021-11-08 13:21:36	Gathering rules
+2021-11-08 13:21:36	Gathering data constraint uddt bindings
+2021-11-08 13:21:36	Gathering message types
+2021-11-08 13:21:36	Gathering queues
+2021-11-08 13:21:36	Gathering contracts
+2021-11-08 13:21:36	Gathering services
+2021-11-08 13:21:36	Gathering event notifications
+2021-11-08 13:21:36	Gathering remote service bindings
+2021-11-08 13:21:36	Gathering broker priorities
+2021-11-08 13:21:36	Gathering signatures
+2021-11-08 13:21:36	Gathering data compression options
+2021-11-08 13:21:36	Gathering sequence types
+2021-11-08 13:21:36	Gathering security policies
+2021-11-08 13:21:36	Gather column encryption keys
+2021-11-08 13:21:36	Gathering column master keys
+2021-11-08 13:21:36	Gathering external data sources
+2021-11-08 13:21:36	Gathering external file formats
+2021-11-08 13:21:36	Gathering external tables
+2021-11-08 13:21:36	Gathering extended properties
+2021-11-08 13:21:36	Gathering credentials
+2021-11-08 13:21:36	Gathering logins
+2021-11-08 13:21:36	Gathering server audits
+2021-11-08 13:21:37	Scanning project for duplicate elements
+2021-11-08 13:21:37	Finished duplicate element processing
+2021-11-08 13:21:38	Finished importing database.
+2021-11-08 13:21:38	A summary of the import was saved to the following location: C:\repositories\work\CSharpCourse2021\Chinook\Chinook\Import Schema Logs\Chinook_20211108122132.log
+2021-11-08 13:21:38	Click Finish to continue...
