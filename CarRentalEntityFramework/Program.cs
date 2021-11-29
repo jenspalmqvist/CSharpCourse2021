@@ -14,10 +14,13 @@ namespace CarRentalEntityFramework
             dataAccess.RecreateDatabase();
             Console.WriteLine("Adding Cars and RentalOffices");
             dataAccess.AddCarsAndRentalOffices();
-            DisplayCarInfo();
-            DisplaySpecificCarInfo();
-            DisplayCarsInRentalOffice();
-            DisplayEmployeeInfo();
+            //DisplayCarInfo();
+            //DisplaySpecificCarInfo();
+            //DisplayCarsInRentalOffice();
+            //DisplayEmployeeInfo();
+            //RemoveCarById();
+            UpdateCarById();
+            UpdateAllCars();
         }
 
         static void DisplayCarInfo()
@@ -62,6 +65,22 @@ namespace CarRentalEntityFramework
 
             Console.WriteLine(employee.Name);
 
+        }
+
+        static void RemoveCarById()
+        {
+            dataAccess.RemoveCarById(1);
+        }
+
+        static void UpdateCarById()
+        {
+            dataAccess.UpdateCarById(1);
+        }
+
+        static void UpdateAllCars()
+        {
+            //dataAccess.ResetAllCarMileages();
+            dataAccess.UpdateCarLocations();
         }
     }
 }

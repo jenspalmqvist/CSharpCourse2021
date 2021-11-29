@@ -98,8 +98,86 @@ namespace CarRentalEntityFramework
             {
                 return employee;
             }
+        }
 
-            //return context.RentalOffices.FirstOrDefault(r => r.Id == id)?.Cars.ToList();
+        public void RemoveCarById(int id)
+        {
+            var car = GetCarById(id);
+            Console.WriteLine(car);
+            context.Cars.Remove(car);
+            context.SaveChanges();
+            car = GetCarById(id);
+            Console.WriteLine(car);
+        }
+
+        public void UpdateCarById(int id)
+        {
+
+            Car car = GetCarById(id);
+            Console.WriteLine(car);
+            car.Mileage = 2;
+
+            //context.Cars.Update(car);
+            context.SaveChanges();
+            Console.WriteLine(car);
+        }
+
+        public void ResetAllCarMileages()
+        {
+            List<Car> cars = GetCars();
+            Console.WriteLine("Before changes:");
+            foreach (Car car in cars)
+            {
+                Console.WriteLine(car);
+                car.Mileage = 0;
+            }
+            //context.Cars.Update(car);
+            context.SaveChanges();
+
+            cars = GetCars();
+            Console.WriteLine("After changes:");
+            foreach (Car car in cars)
+            {
+                Console.WriteLine(car);
+            }
+        }
+
+        public void UpdateCarLocations()
+        {
+            List<Car> cars = GetCars();
+            RentalOffice newOffice = context.RentalOffices.FirstOrDefault(r => r.Id == 2);
+            RentalOffice oldOffice = context.RentalOffices.FirstOrDefault(r => r.Id == 1);
+            Console.WriteLine("Old office:");
+            foreach (Car car in oldOffice.Cars)
+            {
+                Console.WriteLine(car);
+            }
+            Console.WriteLine("New office:");
+
+            foreach (Car car in newOffice.Cars)
+            {
+                Console.WriteLine(car);
+            }
+
+            foreach (Car car in cars)
+            {
+                car.CurrentOffice = newOffice;
+            }
+            context.SaveChanges();
+
+            newOffice = context.RentalOffices.FirstOrDefault(r => r.Id == 2);
+            oldOffice = context.RentalOffices.FirstOrDefault(r => r.Id == 1);
+            Console.WriteLine("Old office:");
+            foreach (Car car in oldOffice.Cars)
+            {
+                Console.WriteLine(car);
+            }
+            Console.WriteLine("New office:");
+
+            foreach (Car car in newOffice.Cars)
+            {
+                Console.WriteLine(car);
+            }
         }
     }
 }
