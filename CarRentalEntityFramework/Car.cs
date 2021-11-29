@@ -19,5 +19,10 @@ namespace CarRentalEntityFramework
         // Detta görs om till en Foreign Key av Entity Framework, på grund av att RentalOffice
         // innehåller en ICollection med Cars. Det blir alltså automatiskt en en-till-många relation.
         public RentalOffice CurrentOffice { get; set; }
+
+        public override string ToString()
+        {
+            return $"Model: {Model} Mileage: {Mileage} Current office: {CurrentOffice.Name}";
+        }
     }
 }
