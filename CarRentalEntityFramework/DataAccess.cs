@@ -64,12 +64,23 @@ namespace CarRentalEntityFramework
         public List<Car> GetCars()
         {
             // Hämtar en lista med alla rader i tabellen
-            return context.Cars.ToList();
+            return context.Cars.Include(c => c.CurrentOffice).ToList();
         }
 
         public Car GetCarById(int id)
         {
             return context.Cars.FirstOrDefault(c => c.Id == id);
+        }
+
+        public Car GetEmployeesInSameOffice(int id)
+        {
+            // Hämta från Cars-tabellen i databasen
+            return context.Cars
+                // Inkludera infon i RentalOffice-tabellen som är kopplat till bilen ( Include är typ samma som JOIN i SQL )
+                .Include(c => c.CurrentOffice)
+                // Inkludera infon från Employees som är kopplat till CurrentOffice
+                .ThenInclude(r => r.Employees)
+                .FirstOrDefault(c => c.Id == id);
         }
 
         public List<Car> GetCarsInRentalOffice(int id)
@@ -84,7 +95,7 @@ namespace CarRentalEntityFramework
                 return rentalOffice.Cars.ToList();
             }
 
-            return context.RentalOffices.FirstOrDefault(r => r.Id == id)?.Cars.ToList();
+            // return context.RentalOffices.FirstOrDefault(r => r.Id == id)?.Cars.ToList();
         }
 
         public Employee GetEmployeeById(int id)

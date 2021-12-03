@@ -10,17 +10,19 @@ namespace CarRentalEntityFramework
         static void Main(string[] args)
         {
             // DataAccess är vår klass där vi jobbar mot databasen
-            Console.WriteLine("Resetting Database");
-            dataAccess.RecreateDatabase();
-            Console.WriteLine("Adding Cars and RentalOffices");
-            dataAccess.AddCarsAndRentalOffices();
+            //Console.WriteLine("Resetting Database");
+            //dataAccess.RecreateDatabase();
+            //Console.WriteLine("Adding Cars and RentalOffices");
+            //dataAccess.AddCarsAndRentalOffices();
+
             //DisplayCarInfo();
-            //DisplaySpecificCarInfo();
+            //DisplayEmployeesInSameOffice();
+            DisplaySpecificCarInfo();
             //DisplayCarsInRentalOffice();
             //DisplayEmployeeInfo();
             //RemoveCarById();
-            UpdateCarById();
-            UpdateAllCars();
+            //UpdateCarById();
+            //UpdateAllCars();
         }
 
         static void DisplayCarInfo()
@@ -37,7 +39,7 @@ namespace CarRentalEntityFramework
         static void DisplaySpecificCarInfo()
         {
             Console.WriteLine("Fetching car with Id");
-            Car car = dataAccess.GetCarById(1);
+            Car car = dataAccess.GetCarById(87);
             if (car == null)
             {
                 Console.WriteLine("Car not found");
@@ -48,6 +50,23 @@ namespace CarRentalEntityFramework
             }
         }
 
+        static void DisplayEmployeesInSameOffice()
+        {
+            Console.WriteLine("Fetching employees from same office as car with Id");
+            Car car = dataAccess.GetEmployeesInSameOffice(1);
+            if (car == null)
+            {
+                Console.WriteLine("Car not found");
+            }
+            else
+            {
+                // På grund av att vi har inkluderat CurrentOffice och Employee inne i dataAccess så får vi ut all info här 
+                foreach (Employee e in car.CurrentOffice.Employees)
+                {
+                    Console.WriteLine(e.Name);
+                }
+            }
+        }
         static void DisplayCarsInRentalOffice()
         {
             Console.WriteLine("Fetching cars in RentalOffice with Id 2");
