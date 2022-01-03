@@ -13,7 +13,7 @@ namespace CarRentalEntityFramework
         public int Id { get; set; }
         //Detta är 'Attributes' som gör så att vi kan vara lite mer specifika kring vad våra kolumner får innehålla
         [StringLength(50)]
-        [DisallowNull]
+        [Required]
         public string Model { get; set; }
         public int Mileage { get; set; }
         // Detta görs om till en Foreign Key av Entity Framework, på grund av att RentalOffice

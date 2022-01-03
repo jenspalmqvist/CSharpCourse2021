@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace CarRentalEntityFramework
@@ -14,15 +15,56 @@ namespace CarRentalEntityFramework
             //dataAccess.RecreateDatabase();
             //Console.WriteLine("Adding Cars and RentalOffices");
             //dataAccess.AddCarsAndRentalOffices();
-
-            //DisplayCarInfo();
+            //CreateCar();
+            //UpdateChosenCar();
+            //RemoveChosenCar();
+            DisplayCarInfo();
             //DisplayEmployeesInSameOffice();
-            DisplaySpecificCarInfo();
+            //DisplaySpecificCarInfo();
             //DisplayCarsInRentalOffice();
             //DisplayEmployeeInfo();
             //RemoveCarById();
-            //UpdateCarById();
+            UpdateCarById();
             //UpdateAllCars();
+        }
+
+        static void CreateCar()
+        {
+            Car car = new Car();
+            car.Mileage = 0;
+            car.Model = "Tesla";
+            List<RentalOffice> offices = dataAccess.GetRentalOffices();
+            car.CurrentOffice = offices[0];
+            dataAccess.CreateCar(car);
+        }
+
+        static void UpdateChosenCar()
+        {
+            List<Car> cars = dataAccess.GetCars();
+            Console.WriteLine("List of cars:");
+            foreach (Car car in cars)
+            {
+                Console.WriteLine(car.Id + " " + car);
+            }
+            Console.Write("Input Id of the car you want to update: ");
+            int input = int.Parse(Console.ReadLine());
+            Car chosenCar = cars.First(c => c.Id == input);
+            chosenCar.Model = "Mercedes";
+            dataAccess.UpdateChosenCar(chosenCar);
+        }
+
+        static void RemoveChosenCar()
+        {
+            List<Car> cars = dataAccess.GetCars();
+            Console.WriteLine("List of cars:");
+            foreach (Car car in cars)
+            {
+                Console.WriteLine(car.Id + " " + car);
+            }
+            Console.Write("Input Id of the car you want to remove: ");
+            int input = int.Parse(Console.ReadLine());
+            Car chosenCar = cars.First(c => c.Id == input);
+            dataAccess.RemoveChosenCar(chosenCar);
         }
 
         static void DisplayCarInfo()
@@ -32,7 +74,7 @@ namespace CarRentalEntityFramework
             Console.WriteLine("List of cars:");
             foreach (Car car in cars)
             {
-                Console.WriteLine(car);
+                Console.WriteLine(car.Id + " " + car);
             }
         }
 

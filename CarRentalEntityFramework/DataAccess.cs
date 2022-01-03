@@ -61,6 +61,35 @@ namespace CarRentalEntityFramework
             context.SaveChanges();
         }
 
+        public void CreateCar(Car car)
+        {
+            try
+            {
+                context.Cars.Add(car);
+                context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Incorrect input.");
+            }
+        }
+
+        public void UpdateChosenCar(Car car)
+        {
+            //context.Update(car);
+            context.Upsert(car);
+            context.SaveChanges();
+        }
+        public void RemoveChosenCar(Car car)
+        {
+            context.Remove(car);
+            context.SaveChanges();
+        }
+        public List<RentalOffice> GetRentalOffices()
+        {
+            return context.RentalOffices.ToList();
+        }
+
         public List<Car> GetCars()
         {
             // Hämtar en lista med alla rader i tabellen
@@ -125,6 +154,11 @@ namespace CarRentalEntityFramework
         {
 
             Car car = GetCarById(id);
+            if (car == null)
+            {
+                Console.WriteLine("Car with Id " + id + " not found");
+                return;
+            }
             Console.WriteLine(car);
             car.Mileage = 2;
 
